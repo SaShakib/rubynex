@@ -13,9 +13,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">T</span>
+                <span className="text-white font-bold">R</span>
               </div>
-              <span className="font-bold text-lg">TechFlow</span>
+              <span className="font-bold text-lg">Rubynex</span>
             </div>
             <p className="text-muted-foreground text-sm">
               Building exceptional digital experiences with modern technology.
@@ -106,7 +106,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} TechFlow. All rights reserved.</p>
+          <p>&copy; {currentYear} Rubynex. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-primary transition">
               Privacy Policy

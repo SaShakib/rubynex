@@ -55,7 +55,7 @@ export default function Featured() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">TechFlow</span>
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Rubynex</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-balance">
             We combine cutting-edge technology with creative excellence to deliver results that exceed expectations.

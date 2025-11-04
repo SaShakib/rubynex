@@ -8,18 +8,18 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "TechFlow - Modern Software Development Agency",
+  title: "Rubynex - Modern Software Development Agency",
   description:
     "Build exceptional digital experiences with our expert software development team. Cloud-native solutions, modern tech stack, and innovative design.",
   keywords: "software development, web development, cloud solutions, tech agency, digital transformation",
   openGraph: {
-    title: "TechFlow - Modern Software Development Agency",
+    title: "Rubynex - Modern Software Development Agency",
     description: "Build exceptional digital experiences with our expert software development team.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TechFlow - Modern Software Development Agency",
+    title: "Rubynex - Modern Software Development Agency",
     description: "Build exceptional digital experiences with our expert software development team.",
   },
   generator: "v0.app",
