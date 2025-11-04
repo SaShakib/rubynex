@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 export default function CTASection() {
   const containerRef = useRef(null)
@@ -49,13 +50,6 @@ export default function CTASection() {
       </div>
 
       <div className="max-w-4xl mx-auto text-center">
-        <div className="inline-block mb-6 px-4 py-2 rounded-full border border-primary/30 bg-primary/5">
-          <span className="text-sm font-semibold text-primary flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-primary"></span>
-            Let's Talk
-          </span>
-        </div>
-
         <motion.h2
           variants={titleVariants}
           initial="hidden"
@@ -63,9 +57,9 @@ export default function CTASection() {
           viewport={{ once: true, amount: 0.25 }}
           className="text-5xl md:text-6xl font-bold mb-6"
         >
-          Ready to Build Something{" "}
+          Ready to Build Your{" "}
           <span className="text-transparent bg-gradient-to-r from-primary to-accent bg-clip-text">
-            Amazing Together?
+            Future?
           </span>
         </motion.h2>
 
@@ -76,32 +70,26 @@ export default function CTASection() {
           viewport={{ once: true, amount: 0.25 }}
           className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          Let's discuss your project and explore how we can help bring your vision to life with innovative software
-          solutions.
+          Stop letting bad technology dictate your growth. Let's schedule a free, no-obligation strategy call to map out your digital transformation.
         </motion.p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.button
-            custom={0}
-            variants={buttonVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
+        <motion.div
+          custom={0}
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+          className="flex justify-center"
+        >
+          <Link
+            href="https://calendly.com/rubynextech/strategy-audit"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-3 rounded-lg bg-gradient-to-r from-primary to-accent text-white font-semibold hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 cursor-pointer"
           >
-            Get Started →
-          </motion.button>
-          <motion.button
-            custom={1}
-            variants={buttonVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.25 }}
-            className="px-8 py-3 rounded-lg border border-slate-700 text-black font-semibold hover:bg-slate-900 hover:text-white transition-all duration-300 cursor-pointer"
-          >
-            Schedule a Call
-          </motion.button>
-        </div>
+            Book Your Free Audit
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

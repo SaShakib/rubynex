@@ -1,8 +1,8 @@
 import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
-import Featured from "@/components/featured"
-import Clients from "@/components/clients"
+import ProblemSection from "@/components/problem-section"
 import EnterpriseSolutions from "@/components/enterprise-solutions"
+import Clients from "@/components/clients"
 import ProjectShowcase from "@/components/project-showcase"
 import TechStack from "@/components/tech-stack"
 import Testimonials from "@/components/testimonials"
@@ -22,9 +22,9 @@ export default function Home() {
     <main className="overflow-hidden">
       <Navigation />
       <Hero />
-      <Featured />
-      <Clients />
+      <ProblemSection />
       <EnterpriseSolutions />
+      <Clients />
       <ProjectShowcase />
       <TechStack />
       <Testimonials />

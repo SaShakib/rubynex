@@ -88,7 +88,7 @@ export default function ProjectShowcase() {
                             sizes="(max-width: 768px) 100vw, 50vw"
                             className="object-cover group-hover:scale-110 transition-transform duration-500"
                             loading="lazy"
-                            quality={85}
+                            quality={75}
                           />
                         </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-20">

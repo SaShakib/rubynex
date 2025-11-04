@@ -83,7 +83,7 @@ export default function CraftingRelationships() {
                       sizes="288px"
                       className="object-cover"
                       loading="lazy"
-                      quality={85}
+                      quality={75}
                     />
                   </div>
                 </div>

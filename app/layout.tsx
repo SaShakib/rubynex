@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Rubynex - Modern Software Development Agency",
     description: "Build exceptional digital experiences with our expert software development team.",
   },
-  generator: "v0.app",
+  generator: "Rubynex Technologies",
 }
 
 export default function RootLayout({
