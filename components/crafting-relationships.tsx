@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
+import Image from "next/image"
 import { motion } from "framer-motion"
 
 const teamImages = [
@@ -74,7 +75,17 @@ export default function CraftingRelationships() {
                     marginTop: `${startOffset}px`,
                   }}
                 >
-                  <img src={image.src || "/placeholder.svg"} alt={image.alt} className="w-full h-full object-cover" />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={image.src || "/placeholder.svg"}
+                      alt={image.alt}
+                      fill
+                      sizes="288px"
+                      className="object-cover"
+                      loading="lazy"
+                      quality={85}
+                    />
+                  </div>
                 </div>
               )
             })}

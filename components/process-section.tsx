@@ -49,7 +49,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], // easeOut cubic bezier
     },
   },
 }
@@ -93,11 +93,9 @@ export default function ProcessSection() {
                 <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 border border-primary/40 flex items-center justify-center mb-6 group hover:border-primary/80 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 overflow-hidden relative">
                   {step.hasImage ? (
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/40 group-hover:from-primary/60 group-hover:to-accent/60 transition-all duration-300 flex items-center justify-center">
-                      <img
-                        src={`/.jpg?height=96&width=96&query=${step.title} process image`}
-                        alt={step.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                      />
+                      <span className="text-4xl group-hover:scale-110 transition-transform duration-300">
+                        {step.icon}
+                      </span>
                     </div>
                   ) : (
                     <span className="text-4xl group-hover:scale-110 transition-transform duration-300">

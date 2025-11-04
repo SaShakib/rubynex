@@ -2,12 +2,9 @@
 
 import type React from "react"
 
-import { useState, useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useState, useRef } from "react"
+import { motion } from "framer-motion"
 import { Send } from "lucide-react"
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,23 +17,17 @@ export default function ContactForm() {
   const [submitStatus, setSubmitStatus] = useState("")
 
   const containerRef = useRef(null)
-  const formRef = useRef(null)
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(formRef.current, {
-        scrollTrigger: {
-          trigger: formRef.current,
-          start: "top 70%",
-        },
-        opacity: 0,
-        y: 50,
+  const formVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         duration: 0.8,
-      })
-    }, containerRef)
-
-    return () => ctx.revert()
-  }, [])
+      },
+    },
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -77,8 +68,11 @@ export default function ContactForm() {
           <p className="text-lg text-muted-foreground">Get in touch with our team and let's discuss your vision</p>
         </div>
 
-        <form
-          ref={formRef}
+        <motion.form
+          variants={formVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
           onSubmit={handleSubmit}
           className="space-y-6 bg-card p-8 rounded-xl border border-border shadow-lg"
         >
@@ -137,7 +131,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 disabled:opacity-50 flex items-center justify-center gap-2 group"
+            className="w-full py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer flex items-center justify-center gap-2 group"
           >
             {isSubmitting ? "Sending..." : "Send Message"}
             <Send size={20} className="group-hover:translate-x-1 transition" />
@@ -148,7 +142,7 @@ export default function ContactForm() {
               ✓ Message sent successfully! We'll get back to you soon.
             </div>
           )}
-        </form>
+        </motion.form>
       </div>
     </section>
   )

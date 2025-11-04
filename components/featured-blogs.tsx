@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { ArrowRight, Calendar, User } from "lucide-react"
-
-gsap.registerPlugin(ScrollTrigger)
 
 const blogs = [
   {
@@ -42,26 +40,18 @@ const blogs = [
 
 export default function FeaturedBlogs() {
   const containerRef = useRef(null)
-  const cardsRef = useRef([])
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      cardsRef.current.forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: "top 80%",
-          },
-          opacity: 0,
-          y: 40,
-          duration: 0.7,
-          delay: index * 0.15,
-        })
-      })
-    }, containerRef)
-
-    return () => ctx.revert()
-  }, [])
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        delay: index * 0.15,
+      },
+    }),
+  }
 
   return (
     <section id="blogs" ref={containerRef} className="py-20 px-4 bg-muted/30 relative overflow-hidden">
@@ -81,20 +71,26 @@ export default function FeaturedBlogs() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((blog, index) => (
-            <div
+            <motion.div
               key={index}
-              ref={(el) => {
-                if (el) cardsRef.current[index] = el
-              }}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               className="group h-full"
             >
               <div className={`bg-gradient-to-br ${blog.gradient} rounded-2xl p-1 h-full overflow-hidden`}>
                 <div className="bg-card rounded-2xl h-full overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300">
                   <div className="relative overflow-hidden h-48 md:h-56">
-                    <img
+                    <Image
                       src={blog.image || "/placeholder.svg"}
                       alt={blog.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      loading="lazy"
+                      quality={85}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
@@ -123,14 +119,14 @@ export default function FeaturedBlogs() {
                       </div>
                     </div>
 
-                    <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/link">
+                    <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/link cursor-pointer">
                       Read More
                       <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

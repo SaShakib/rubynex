@@ -51,7 +51,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="#contact"
-              className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full hover:shadow-lg transition"
+              className="px-6 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full hover:shadow-lg transition cursor-pointer"
             >
               Get Started
             </Link>
@@ -83,7 +83,7 @@ export default function Navigation() {
             </Link>
             <Link
               href="#contact"
-              className="block px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded"
+              className="block px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded cursor-pointer"
             >
               Get Started
             </Link>

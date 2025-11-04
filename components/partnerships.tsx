@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 
@@ -30,13 +31,22 @@ export default function Partnerships() {
 
   useEffect(() => {
     if (scrollRef.current) {
-      setScrollWidth(scrollRef.current.scrollWidth - scrollRef.current.clientWidth)
+      setScrollWidth(
+        (scrollRef.current as HTMLDivElement).scrollWidth -
+        (scrollRef.current as HTMLDivElement).clientWidth
+      )
     }
     if (topRowRef.current) {
-      setTopScrollWidth(topRowRef.current.scrollWidth - topRowRef.current.clientWidth)
+      setTopScrollWidth(
+        (topRowRef.current as HTMLDivElement).scrollWidth -
+        (topRowRef.current as HTMLDivElement).clientWidth
+      )
     }
     if (bottomRowRef.current) {
-      setBottomScrollWidth(bottomRowRef.current.scrollWidth - bottomRowRef.current.clientWidth)
+      setBottomScrollWidth(
+        (bottomRowRef.current as HTMLDivElement).scrollWidth -
+        (bottomRowRef.current as HTMLDivElement).clientWidth
+      )
     }
   }, [])
 
@@ -83,7 +93,7 @@ export default function Partnerships() {
             <p className="text-lg text-gray-300 mb-8">
               Our clients speak about our expertise and the success we can bring to your projects.
             </p>
-            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full">
+            <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full cursor-pointer">
               Be a partner
             </Button>
           </div>
@@ -104,12 +114,16 @@ export default function Partnerships() {
                 {[...partners, ...partners].map((partner, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 flex items-center justify-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32 w-40"
+                    className="flex-shrink-0 bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 flex items-center justify-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32 w-40 relative"
                   >
-                    <img
+                    <Image
                       src={partner.logo || "/placeholder.svg"}
                       alt={partner.name}
-                      className="w-full h-full object-contain"
+                      fill
+                      sizes="160px"
+                      className="object-contain p-2"
+                      loading="lazy"
+                      quality={80}
                     />
                   </div>
                 ))}
@@ -131,12 +145,16 @@ export default function Partnerships() {
                 {[...partners.slice(5), ...partners.slice(5), ...partners.slice(5)].map((partner, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 flex items-center justify-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32 w-40"
+                    className="flex-shrink-0 bg-slate-800/50 border border-slate-700/50 rounded-2xl p-6 flex items-center justify-center hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 h-32 w-40 relative"
                   >
-                    <img
+                    <Image
                       src={partner.logo || "/placeholder.svg"}
                       alt={partner.name}
-                      className="w-full h-full object-contain"
+                      fill
+                      sizes="160px"
+                      className="object-contain p-2"
+                      loading="lazy"
+                      quality={80}
                     />
                   </div>
                 ))}

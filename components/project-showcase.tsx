@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { ExternalLink, ArrowRight } from "lucide-react"
-
-gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
@@ -33,33 +31,20 @@ const projects = [
 
 export default function ProjectShowcase() {
   const containerRef = useRef(null)
-  const projectsRef = useRef([])
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      projectsRef.current.forEach((project, index) => {
-        gsap.from(project, {
-          scrollTrigger: {
-            trigger: project,
-            start: "top 70%",
-          },
-          opacity: 0,
-          y: 80,
-          scale: 0.85,
-          rotation: index % 2 === 0 ? -2 : 2,
-          duration: 0.8,
-          ease: "back.out",
-        })
-
-        const image = project.querySelector("img")
-        if (image) {
-          gsap.set(image, { transformOrigin: "center center" })
-        }
-      })
-    }, containerRef)
-
-    return () => ctx.revert()
-  }, [])
+  const projectVariants = {
+    hidden: { opacity: 0, y: 80, scale: 0.85 },
+    visible: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotate: index % 2 === 0 ? -2 : 2,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number], // back.out easing
+      },
+    }),
+  }
 
   return (
     <section id="projects" ref={containerRef} className="py-20 px-4 relative overflow-hidden">
@@ -79,12 +64,15 @@ export default function ProjectShowcase() {
 
         <div className="space-y-16">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              ref={(el) => {
-                if (el) projectsRef.current[index] = el
-              }}
+              custom={index}
+              variants={projectVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
               className="group"
+              style={{ transformOrigin: "center center" }}
             >
               <div className={`bg-gradient-to-br ${project.gradient} rounded-2xl p-1 overflow-hidden`}>
                 <div className="bg-card rounded-2xl overflow-hidden">
@@ -92,13 +80,19 @@ export default function ProjectShowcase() {
                     <div className={index % 2 === 1 ? "md:order-2" : ""}>
                       <div className="relative rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 transition-all duration-300 group">
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div>
-                        <img
-                          src={project.image || "/placeholder.svg"}
-                          alt={project.title}
-                          className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
+                        <div className="relative w-full h-64 md:h-80 overflow-hidden">
+                          <Image
+                            src={project.image || "/placeholder.svg"}
+                            alt={project.title}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                            quality={85}
+                          />
+                        </div>
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 z-20">
-                          <button className="flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all group/btn">
+                          <button className="flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all group/btn cursor-pointer">
                             View Project{" "}
                             <ExternalLink size={20} className="group-hover/btn:rotate-45 transition-transform" />
                           </button>
@@ -127,7 +121,7 @@ export default function ProjectShowcase() {
                         ))}
                       </div>
 
-                      <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/link">
+                      <button className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group/link cursor-pointer">
                         Explore More{" "}
                         <ArrowRight size={20} className="group-hover/link:translate-x-1 transition-transform" />
                       </button>
@@ -135,7 +129,7 @@ export default function ProjectShowcase() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

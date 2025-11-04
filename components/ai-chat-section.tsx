@@ -35,7 +35,7 @@ export default function AIChatSection() {
             </div>
 
             <div className="flex justify-center md:justify-end">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full">
+              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full cursor-pointer">
                 Let's have a Chat
               </Button>
             </div>

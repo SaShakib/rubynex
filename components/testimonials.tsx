@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const testimonials = [
@@ -9,9 +10,9 @@ const testimonials = [
     role: "CEO, TechCorp",
     image: "/professional-woman.png",
     quote:
-      "Ontik is a trusted, agile partner who delivers real impact—so much so, we brought them into our next big venture.",
+      "Rubynex is a trusted, agile partner who delivers real impact—so much so, we brought them into our next big venture.",
     description:
-      "Ontik has been an incredible tech partner from day one—turning our vision for Timunar into a modern, high-impact brand and website. Their team is agile, transparent, and deeply committed to delivering real value.",
+      "Rubynex has been an incredible tech partner from day one—turning our vision for Timunar into a modern, high-impact brand and website. Their team is agile, transparent, and deeply committed to delivering real value.",
   },
   {
     name: "Michael Chen",
@@ -77,11 +78,17 @@ export default function Testimonials() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full">
               {/* Left side - Client image and name */}
               <div className="flex flex-col justify-between">
-                <img
-                  src={testimonials[currentIndex].image || "/placeholder.svg"}
-                  alt={testimonials[currentIndex].name}
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-4 border-primary shadow-lg"
-                />
+                <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-primary shadow-lg">
+                  <Image
+                    src={testimonials[currentIndex].image || "/placeholder.svg"}
+                    alt={testimonials[currentIndex].name}
+                    fill
+                    sizes="(max-width: 768px) 128px, 160px"
+                    className="object-cover"
+                    loading="lazy"
+                    quality={85}
+                  />
+                </div>
                 <div>
                   <p className="font-bold text-lg text-foreground">{testimonials[currentIndex].name}</p>
                   <p className="text-muted-foreground text-sm">{testimonials[currentIndex].role}</p>
