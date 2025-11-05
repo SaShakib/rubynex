@@ -408,14 +408,18 @@ export default function ServicesPage() {
             </motion.div>
 
             <div className="space-y-24">
-              {services.map((category, categoryIndex) => (
+              {services.map((category, categoryIndex) => {
+                // Create section ID from category short name
+                const sectionId = category.categoryShort.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and')
+                return (
                 <motion.div
                   key={categoryIndex}
+                  id={sectionId}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.1 }}
                   variants={containerVariants}
-                  className="relative"
+                  className="relative scroll-mt-24"
                 >
                   {/* Category Header */}
                   <motion.div
@@ -516,7 +520,8 @@ export default function ServicesPage() {
                     })}
                   </div>
                 </motion.div>
-              ))}
+              )
+              })}
             </div>
           </div>
         </section>

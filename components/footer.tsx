@@ -26,23 +26,23 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-primary transition">
+                <Link href="/services#digital-sales-platform" className="hover:text-primary transition">
                   Web Development
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
+                <Link href="/services#digital-sales-platform" className="hover:text-primary transition">
                   Mobile Apps
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
-                  Cloud Solutions
+                <Link href="/services#day-2-and-beyond" className="hover:text-primary transition">
+                  Cloud & DevOps
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
-                  Consulting
+                <Link href="/services#digital-identity" className="hover:text-primary transition">
+                  Digital Strategy
                 </Link>
               </li>
             </ul>
@@ -52,22 +52,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>
-                <Link href="#" className="hover:text-primary transition">
+                <Link href="/about" className="hover:text-primary transition">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
+                <Link href="/blog" className="hover:text-primary transition">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
-                  Careers
+                <Link href="/services" className="hover:text-primary transition">
+                  Services
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition">
+                <Link href="/contact" className="hover:text-primary transition">
                   Contact
                 </Link>
               </li>
@@ -108,10 +108,10 @@ export default function Footer() {
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; {currentYear} Rubynex. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-primary transition">
+            <Link href="/privacy" className="hover:text-primary transition">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-primary transition">
+            <Link href="/terms" className="hover:text-primary transition">
               Terms of Service
             </Link>
             <Link href="#" className="hover:text-primary transition">
