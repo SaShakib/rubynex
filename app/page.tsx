@@ -11,9 +11,9 @@ import Partnerships from "@/components/partnerships"
 import AIChatSection from "@/components/ai-chat-section"
 import FeaturedBlogs from "@/components/featured-blogs"
 import FAQ from "@/components/faq"
-import ContactForm from "@/components/contact-form"
+// import ContactForm from "@/components/contact-form"
 import Footer from "@/components/footer"
-import MessageWidget from "@/components/message-widget"
+// import MessageWidget from "@/components/message-widget"
 import CTASection from "@/components/cta-section"
 import ProcessSection from "@/components/process-section"
 
@@ -35,9 +35,9 @@ export default function Home() {
       <FAQ />
       <CTASection />
       <ProcessSection />
-      <ContactForm />
+      {/* <ContactForm /> */}
       <Footer />
-      <MessageWidget />
+      {/* <MessageWidget /> */}
     </main>
   )
 }
