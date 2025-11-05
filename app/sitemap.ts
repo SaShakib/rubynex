@@ -4,9 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Get base URL from environment variable or use default
   // For production, set NEXT_PUBLIC_SITE_URL in your environment variables
   // For local development, this will use the default
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 
-                  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 
-                  'https://rubynex.com')
+  const baseUrl = 'https://www.rubynex.com'
   
   // Ensure baseUrl doesn't have trailing slash
   const cleanBaseUrl = baseUrl.replace(/\/$/, '')
