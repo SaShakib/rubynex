@@ -114,7 +114,7 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-primary transition">
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-primary transition">
+            <Link href="/sitemap.xml" className="hover:text-primary transition">
               Sitemap
             </Link>
           </div>
