@@ -35,7 +35,7 @@ export default function CraftingRelationships() {
         {/* First Row: Title and Description */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-12">
           <div>
-            <p className="text-primary font-semibold mb-2">#YOUAREONTIK</p>
+            <p className="text-primary font-semibold mb-2">#YourDigitalPartner</p>
             <h2 className="text-4xl md:text-5xl font-bold">
               Crafting{" "}
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Long-Term</span>
@@ -46,8 +46,8 @@ export default function CraftingRelationships() {
 
           <div className="pt-2">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              At Ontik Technology, we see you as a partner, where your goals become our mission. Your success is the
-              inspiration of our works, and your growth is the real measure of our achievements.
+              At Rubynex, we see you as a partner, where your goals become our mission. Your success is the
+              inspiration of our works, and your growth is the real measure of our achievements. Together, we transform businesses into digital-first operations.
             </p>
           </div>
         </div>

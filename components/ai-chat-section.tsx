@@ -52,7 +52,7 @@ export default function AIChatSection() {
                 Ahead of the Competition?
               </h2>
               <p className="text-lg text-slate-700 mb-8">
-                Let's bring it to life together! Hire top talents from Ontik Technology.
+                Let's bring it to life together! Partner with Rubynex to transform your business with cutting-edge AI solutions and digital innovation.
               </p>
             </div>
 
