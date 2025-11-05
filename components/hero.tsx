@@ -69,9 +69,7 @@ export default function Hero() {
 
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
             <Link
-              href="https://calendly.com/rubynextech/strategy-audit"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="px-8 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
             >
               Start Your Transformation

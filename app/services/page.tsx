@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowRight, Target, Palette, Layout, Globe, Smartphone, ShoppingCart, Code, Brain, Database, Search, Megaphone, FileText, Cloud, Shield, Users, Sparkles, Calendar } from "lucide-react"
+import { ArrowRight, Target, Palette, Layout, Globe, Smartphone, ShoppingCart, Code, Brain, Database, Search, Megaphone, FileText, Cloud, Shield, Users, Sparkles, Calendar, AlertCircle, Zap, Rocket } from "lucide-react"
 import Link from "next/link"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
@@ -9,7 +9,7 @@ import ScrollIndicator from "@/components/scroll-indicator"
 
 const services = [
   {
-    category: "1. We Build Your Digital Identity & Strategy",
+    category: "We Build Your Digital Identity & Strategy",
     categoryShort: "Digital Identity",
     description: "Where your brand story begins",
     gradient: "from-purple-500 via-pink-500 to-red-500",
@@ -40,7 +40,7 @@ const services = [
     ],
   },
   {
-    category: "2. We Create Your 24/7 Digital Sales Platform",
+    category: "We Create Your 24/7 Digital Sales Platform",
     categoryShort: "Digital Sales Platform",
     description: "Your business never sleeps",
     gradient: "from-blue-500 via-cyan-500 to-teal-500",
@@ -71,7 +71,7 @@ const services = [
     ],
   },
   {
-    category: "3. We Build Your Central Operations Hub",
+    category: "We Build Your Central Operations Hub",
     categoryShort: "Operations Hub",
     description: "Automation that works while you sleep",
     gradient: "from-emerald-500 via-green-500 to-lime-500",
@@ -102,7 +102,7 @@ const services = [
     ],
   },
   {
-    category: "4. We Bring You the Customers",
+    category: "We Bring You the Customers",
     categoryShort: "Customer Acquisition",
     description: "Turn browsers into buyers",
     gradient: "from-orange-500 via-amber-500 to-yellow-500",
@@ -319,7 +319,7 @@ export default function ServicesPage() {
                   className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight"
                 >
                   Our Mission: From{" "}
-                  <span className="bg-gradient-to-r from-red-500 to-orange-500 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-slate-400 via-slate-800 to-slate-500 bg-clip-text text-transparent">
                     Offline & Overwhelmed
                   </span>{" "}
                   to{" "}
@@ -334,23 +334,23 @@ export default function ServicesPage() {
                 className="grid md:grid-cols-3 gap-6 mb-12"
               >
                 <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-2 border-red-500/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-3xl mb-3">📊</div>
-                  <p className="text-sm font-semibold text-red-400 mb-2">The Problem</p>
-                  <p className="text-sm text-muted-foreground">
+                  <AlertCircle className="text-red-600 dark:text-red-500 mb-3" size={24} />
+                  <p className="text-sm font-bold text-red-700 dark:text-red-600 mb-2">The Problem</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     Trapped by offline processes, losing customers, fighting spreadsheets
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-yellow-500/10 to-amber-500/10 border-2 border-yellow-500/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-3xl mb-3">⚡</div>
-                  <p className="text-sm font-semibold text-yellow-400 mb-2">The Solution</p>
-                  <p className="text-sm text-muted-foreground">
+                  <Zap className="text-yellow-600 dark:text-yellow-500 mb-3" size={24} />
+                  <p className="text-sm font-bold text-yellow-700 dark:text-yellow-600 mb-2">The Solution</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     Complete digital transformation across all operations
                   </p>
                 </div>
                 <div className="bg-gradient-to-br from-green-500/10 to-emerald-500/10 border-2 border-green-500/20 rounded-2xl p-6 backdrop-blur-sm">
-                  <div className="text-3xl mb-3">🚀</div>
-                  <p className="text-sm font-semibold text-green-400 mb-2">The Result</p>
-                  <p className="text-sm text-muted-foreground">
+                  <Rocket className="text-green-600 dark:text-green-500 mb-3" size={24} />
+                  <p className="text-sm font-bold text-green-700 dark:text-green-600 mb-2">The Result</p>
+                  <p className="text-sm text-foreground/80 leading-relaxed">
                     Fully scaled, digital-first operations that grow with you
                   </p>
                 </div>

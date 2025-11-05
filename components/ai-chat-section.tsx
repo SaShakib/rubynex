@@ -2,7 +2,29 @@
 
 import { Button } from "@/components/ui/button"
 
+declare global {
+  interface Window {
+    Tawk_API?: {
+      maximize?: () => void;
+      toggle?: () => void;
+      showWidget?: () => void;
+    };
+  }
+}
+
 export default function AIChatSection() {
+  const handleChatClick = () => {
+    if (window.Tawk_API) {
+      if (window.Tawk_API.maximize && typeof window.Tawk_API.maximize === 'function') {
+        window.Tawk_API.maximize();
+      } else if (window.Tawk_API.toggle && typeof window.Tawk_API.toggle === 'function') {
+        window.Tawk_API.toggle();
+      } else if (window.Tawk_API.showWidget && typeof window.Tawk_API.showWidget === 'function') {
+        window.Tawk_API.showWidget();
+      }
+    }
+  };
+
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -35,7 +57,10 @@ export default function AIChatSection() {
             </div>
 
             <div className="flex justify-center md:justify-end">
-              <Button className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full cursor-pointer">
+              <Button 
+                onClick={handleChatClick}
+                className="bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg rounded-full cursor-pointer"
+              >
                 Let's have a Chat
               </Button>
             </div>
